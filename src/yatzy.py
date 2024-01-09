@@ -12,23 +12,16 @@ class Yatzy:
             counts[die - 1] += 1
         return 50 if any(count == 5 for count in counts) else 0
     
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     @staticmethod
-    def ones( d1,  d2,  d3,  d4,  d5):
+    def ones(*args):
         sum = 0
-        if (d1 == 1):
-            sum += 1
-        if (d2 == 1):
-            sum += 1
-        if (d3 == 1):
-            sum += 1
-        if (d4 == 1):
-            sum += 1
-        if (d5 == 1): 
-            sum += 1
-
+        for arg in args:
+            if arg == 1:
+                sum += 1
         return sum
     
-
+    
     @staticmethod
     def twos( d1,  d2,  d3,  d4,  d5):
         sum = 0
