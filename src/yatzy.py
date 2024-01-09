@@ -111,20 +111,13 @@ class Yatzy:
                 return (i + 1) * 3
         return 0
     
-
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     @staticmethod
-    def smallStraight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[0] == 1 and
-            tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1):
+    def smallStraight(*dice):
+        tallies = [0] * 6
+        for die in dice:
+            tallies[die - 1] += 1
+        if all(count == 1 for count in tallies[:5]):
             return 15
         return 0
     
