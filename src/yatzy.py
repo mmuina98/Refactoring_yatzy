@@ -21,20 +21,13 @@ class Yatzy:
                 sum += 1
         return sum
     
-    
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     @staticmethod
-    def twos( d1,  d2,  d3,  d4,  d5):
+    def twos(*args):
         sum = 0
-        if (d1 == 2):
-             sum += 2
-        if (d2 == 2):
-             sum += 2
-        if (d3 == 2):
-             sum += 2
-        if (d4 == 2):
-             sum += 2
-        if (d5 == 2):
-             sum += 2
+        for arg in args:
+            if arg == 2:
+                sum += 2
         return sum
     
     @staticmethod
