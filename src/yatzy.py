@@ -39,6 +39,7 @@ class Yatzy:
                 sum += 3
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados
+    @staticmethod
     def fours(*args):
         sum = 0
         for arg in args:
@@ -46,11 +47,20 @@ class Yatzy:
                 sum += 4
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados
+    @staticmethod
     def fives(*args):
         sum = 0
         for arg in args:
             if arg == 5:
                 sum += 5
+        return sum
+    # Cambie para que se pueda usar siendo diferente de 5 dados
+    @staticmethod
+    def sixes(*args):
+        sum = 0
+        for arg in args:
+            if arg == 6:
+                sum += 6
         return sum
     def __init__(self, d1, d2, d3, d4, _5):
         self.dice = [0]*5
@@ -59,19 +69,6 @@ class Yatzy:
         self.dice[2] = d3
         self.dice[3] = d4
         self.dice[4] = _5
-    
-    
-    
-
-    
-    
-
-    def sixes(self):
-        sum = 0
-        for at in range(len(self.dice)): 
-            if (self.dice[at] == 6):
-                sum = sum + 6
-        return sum
     
     @staticmethod
     def score_pair( d1,  d2,  d3,  d4,  d5):
