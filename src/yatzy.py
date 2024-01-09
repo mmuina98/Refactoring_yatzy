@@ -38,14 +38,20 @@ class Yatzy:
             if arg == 3:
                 sum += 3
         return sum
-    
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     def fours(*args):
         sum = 0
         for arg in args:
             if arg == 4:
                 sum += 4
         return sum
-
+    # Cambie para que se pueda usar siendo diferente de 5 dados
+    def fives(*args):
+        sum = 0
+        for arg in args:
+            if arg == 5:
+                sum += 5
+        return sum
     def __init__(self, d1, d2, d3, d4, _5):
         self.dice = [0]*5
         self.dice[0] = d1
@@ -57,13 +63,7 @@ class Yatzy:
     
     
 
-    def fives(self):
-        s = 0
-        i = 0
-        for i in range(len(self.dice)): 
-            if (self.dice[i] == 5):
-                s = s + 5
-        return s
+    
     
 
     def sixes(self):
