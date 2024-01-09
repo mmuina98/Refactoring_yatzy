@@ -62,19 +62,15 @@ class Yatzy:
             if arg == 6:
                 sum += 6
         return sum
-    
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     @staticmethod
-    def score_pair( d1,  d2,  d3,  d4,  d5):
-        counts = [0]*6
-        counts[d1-1] += 1
-        counts[d2-1] += 1
-        counts[d3-1] += 1
-        counts[d4-1] += 1
-        counts[d5-1] += 1
-        at = 0
-        for at in range(6):
-            if (counts[6-at-1] == 2):
-                return (6-at)*2
+    def score_pair(*dice):
+        counts = [0] * 6
+        for die in dice:
+            counts[die - 1] += 1
+        for value in range(6, 0, -1):
+            if counts[value - 1] == 2:
+                return value * 2
         return 0
     
     @staticmethod
