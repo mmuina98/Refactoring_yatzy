@@ -1,5 +1,5 @@
 class Yatzy:
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def chance(*args):
         return sum(args)
@@ -12,7 +12,7 @@ class Yatzy:
             counts[die - 1] += 1
         return 50 if any(count == 5 for count in counts) else 0
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def ones(*args):
         sum = 0
@@ -21,7 +21,7 @@ class Yatzy:
                 sum += 1
         return sum
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def twos(*args):
         sum = 0
@@ -30,7 +30,7 @@ class Yatzy:
                 sum += 2
         return sum
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def threes(*args):
         sum = 0
@@ -38,7 +38,7 @@ class Yatzy:
             if arg == 3:
                 sum += 3
         return sum
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def fours(*args):
         sum = 0
@@ -46,7 +46,7 @@ class Yatzy:
             if arg == 4:
                 sum += 4
         return sum
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def fives(*args):
         sum = 0
@@ -54,7 +54,7 @@ class Yatzy:
             if arg == 5:
                 sum += 5
         return sum
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def sixes(*args):
         sum = 0
@@ -62,7 +62,7 @@ class Yatzy:
             if arg == 6:
                 sum += 6
         return sum
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def score_pair(*dice):
         counts = [0] * 6
@@ -72,7 +72,7 @@ class Yatzy:
             if counts[value - 1] == 2:
                 return value * 2
         return 0
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def two_pair(*dice):
         counts = [0] * 6
@@ -89,7 +89,7 @@ class Yatzy:
         else:
             return 0
         
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def four_of_a_kind(*dice):
         tallies = [0] * 6
@@ -100,7 +100,7 @@ class Yatzy:
                 return (i + 1) * 4
         return 0
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def three_of_a_kind(*dice):
         tallies = [0] * 6
@@ -111,7 +111,7 @@ class Yatzy:
                 return (i + 1) * 3
         return 0
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def smallStraight(*dice):
         tallies = [0] * 6
@@ -121,7 +121,7 @@ class Yatzy:
             return 15
         return 0
     
-    # Cambie para que se pueda usar siendo diferente de 5 dados
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
     def largeStraight(*dice):
         tallies = [0] * 6
@@ -131,36 +131,24 @@ class Yatzy:
             return 20
         return 0
     
-
+    # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
-    def fullHouse( d1,  d2,  d3,  d4,  d5):
-        tallies = []
+    def fullHouse(*dice):
+        tallies = [0] * 6
+        for die in dice:
+            tallies[die - 1] += 1
         _2 = False
-        i = 0
         _2_at = 0
         _3 = False
         _3_at = 0
-
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-
         for i in range(6):
-            if (tallies[i] == 2): 
+            if tallies[i] == 2:
                 _2 = True
-                _2_at = i+1
-            
-
-        for i in range(6):
-            if (tallies[i] == 3): 
+                _2_at = i + 1
+            elif tallies[i] == 3:
                 _3 = True
-                _3_at = i+1
-            
-
-        if (_2 and _3):
+                _3_at = i + 1
+        if _2 and _3:
             return _2_at * 2 + _3_at * 3
         else:
             return 0
