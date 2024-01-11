@@ -1,8 +1,9 @@
 class Yatzy:
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def chance(*args):
-        return sum(args)
+    def chance(*dice):
+        return sum(dice)
 
     # El código era demasiado largo y complejo. 
     @staticmethod
