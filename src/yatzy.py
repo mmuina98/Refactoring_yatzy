@@ -121,20 +121,13 @@ class Yatzy:
             return 15
         return 0
     
-
+    # Cambie para que se pueda usar siendo diferente de 5 dados
     @staticmethod
-    def largeStraight( d1,  d2,  d3,  d4,  d5):
-        tallies = [0]*6
-        tallies[d1-1] += 1
-        tallies[d2-1] += 1
-        tallies[d3-1] += 1
-        tallies[d4-1] += 1
-        tallies[d5-1] += 1
-        if (tallies[1] == 1 and
-            tallies[2] == 1 and
-            tallies[3] == 1 and
-            tallies[4] == 1
-            and tallies[5] == 1):
+    def largeStraight(*dice):
+        tallies = [0] * 6
+        for die in dice:
+            tallies[die - 1] += 1
+        if all(count == 1 for count in tallies[1:6]):
             return 20
         return 0
     
