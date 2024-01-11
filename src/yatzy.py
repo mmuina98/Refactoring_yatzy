@@ -14,53 +14,59 @@ class Yatzy:
         return 50 if any(count == 5 for count in counts) else 0
     
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def ones(*args):
+    def ones(*dice):
         sum = 0
-        for arg in args:
-            if arg == 1:
+        for die in dice:
+            if die == 1:
                 sum += 1
         return sum
     
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def twos(*args):
+    def twos(*dice):
         sum = 0
-        for arg in args:
-            if arg == 2:
+        for die in dice:
+            if die == 2:
                 sum += 2
         return sum
     
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def threes(*args):
+    def threes(*dice):
         sum = 0
-        for arg in args:
-            if arg == 3:
+        for die in dice:
+            if die == 3:
                 sum += 3
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def fours(*args):
+    def fours(*dice):
         sum = 0
-        for arg in args:
-            if arg == 4:
+        for die in dice:
+            if die == 4:
                 sum += 4
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def fives(*args):
+    def fives(*dice):
         sum = 0
-        for arg in args:
-            if arg == 5:
+        for die in dice:
+            if die == 5:
                 sum += 5
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
-    def sixes(*args):
+    def sixes(*dice):
         sum = 0
-        for arg in args:
-            if arg == 6:
+        for die in dice:
+            if die == 6:
                 sum += 6
         return sum
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
