@@ -31,13 +31,11 @@ class Yatzy:
     
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     # Cambie nombre parametro Code smell:(A routine has a poor name)
+    # Utilice las funciones filter y lambda
     @staticmethod
     def threes(*dice):
-        sum = 0
-        for die in dice:
-            if die == 3:
-                sum += 3
-        return sum
+        sum_threes = sum(filter(lambda x: x == 3, dice))
+        return sum_threes
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     # Cambie nombre parametro Code smell:(A routine has a poor name)
     @staticmethod
