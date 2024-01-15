@@ -69,18 +69,13 @@ class Yatzy:
             return max(pairs) * 2
         return 0
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Utilice las funciones filter map  y lambda
     @staticmethod
     def two_pair(*dice):
-        counts = [0] * 6
-        for die in dice:
-            counts[die - 1] += 1
-        n = 0
-        score = 0
-        for i in range(6):
-            if counts[6 - i - 1] >= 2:
-                n += 1
-                score += (6 - i)
-        if n == 2:
+        counts = list(map(lambda x: dice.count(x), range(1, 7)))
+        pairs = list(filter(lambda x: x >= 2, counts))
+        if len(pairs) == 2:
+            score = sum([(6 - i) for i in range(6) if counts[6 - i - 1] >= 2])
             return score * 2
         else:
             return 0
