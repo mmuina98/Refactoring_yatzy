@@ -58,14 +58,15 @@ class Yatzy:
         sum_sixes = sum(filter(lambda x: x == 6, dice))
         return sum_sixes
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
+    # Utilice las funciones filter y lambda
     @staticmethod
     def score_pair(*dice):
         counts = [0] * 6
         for die in dice:
             counts[die - 1] += 1
-        for value in range(6, 0, -1):
-            if counts[value - 1] == 2:
-                return value * 2
+        pairs = list(filter(lambda x: counts[x-1] == 2, range(1, 7)))
+        if pairs:
+            return max(pairs) * 2
         return 0
     # Cambie para que se pueda usar siendo diferente de 5 dados Code smell:(Long Parameter List)
     @staticmethod
